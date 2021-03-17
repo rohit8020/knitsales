@@ -1,0 +1,39 @@
+<%- include('../partials/header'); -%>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="lead bg-light showbrand">KnitSales</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="img-thumbnail showcard">
+        <img src="/<%= product.image %>" class="img-responsive img-fluid" />
+        <div class="caption-full">
+          <h4 class="pull-right">₹ <%= product.price %></h4>
+          <h4><a href="#"><%= product.name %></a></h4>
+          <p><%= product.description %></p>
+          <p>Submitted By <strong><%= product.author.username %></strong></p>
+          <% if(currentUser && product.author.id.equals(currentUser._id)){ %>
+          <a
+            class="btn btn-sm btn-warning"
+            href="/products/<%= product._id %>/edit"
+            >Edit!</a
+          >
+          <form
+            id="delete-form"
+            action="/products/<%= product._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button Class="btn btn-sm btn-danger">Delete</button>
+          </form>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+
+    <%- include("../partials/footer"); -%>
+  </div>
+</div>

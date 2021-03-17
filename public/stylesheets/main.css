@@ -1,0 +1,55 @@
+.navbar{
+    background: #f46b45;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eea849, #f46b45);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eea849, #f46b45); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+font-family: 'Redressed', cursive;
+font-size: 150%;
+}
+.navbar-brand{
+    font-size: 1.5em;
+}
+ img {
+    width: 100%;
+}
+.jumbotron, .itemcard, .showcard{
+    background: #4DA0B0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #D39D38, #4DA0B0);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #D39D38, #4DA0B0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: black;
+}
+img{
+    height: 80px;
+}
+
+.img-thumbnail {
+    padding: 0;
+}
+
+.img-thumbnail .caption-full {
+    padding: 9px;
+}
+
+#delete-form{
+    display: inline;
+}
+
+.alert{
+    margin-top: 70px;
+}
+
+.showbrand{
+    background: #11998e;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    height: 5rem;
+    border-radius: 50%;
+    font-family: 'Redressed', cursive;
+    font-size: 300%;
+    
+}
+.jumbo{
+    font-family: 'Redressed', cursive;
+    color: black;
+    font-size: 1.7em;
+}

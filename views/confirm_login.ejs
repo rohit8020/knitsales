@@ -1,0 +1,24 @@
+<%- include('./partials/header'); -%>
+
+<% if(userConfirmed){ %>
+<div class="container">
+    <h1 style="text-align: center; color: white;">!!LogIn!!</h1>
+    <div style="text-align: center; margin: 20px auto;">
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <input type="text" name="username" placeholder="username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="password" required>
+            </div>
+            <button class="btn btn-success">LogIn</button>
+        </form>
+    </div>
+</div>
+<% }else{ %>
+<div class="alert alert-info" role="alert">
+    <h1>!!CONFIRM YOUR EMAIL!!</h1>
+</div>
+<% } %>
+
+<%- include('./partials/footer'); -%>
