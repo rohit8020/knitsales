@@ -77,6 +77,6 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/products", productRoutes);
 
-app.listen(3000, function(){
-   console.log("The Yelpcamp Server has started!"); 
-});
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("The Yelpcamp Server has started!"); 
+ });
