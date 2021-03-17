@@ -40,7 +40,7 @@ async function sendMail(userId, email, task) {
       },
     });
     
-    const url = `https://yelp-camp-v14.herokuapp.com/${task}/${userId}`;
+    const url = `https://knitsales.herokuapp.com/${task}/${userId}`;
 
     const mailOptions = {
       to: `${email}`,
