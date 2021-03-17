@@ -78,5 +78,5 @@ app.use("/", indexRoutes);
 app.use("/products", productRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("The Yelpcamp Server has started!"); 
+    console.log("The knitsales Server has started!"); 
  });
