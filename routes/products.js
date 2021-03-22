@@ -20,7 +20,7 @@ router.get("/", function(req, res){
     })
 });
 
-//CRAETE -add new capmground to DB
+//CRAETE -add new product to DB
 router.post("/",middleware.isLoggedIn, [
     body('name')
       .isString()
