@@ -128,7 +128,7 @@ router.put("/:id", middleware.checkProductOwnership, [
             res.redirect("back");
         } else{
             product.name=req.body.name;
-            product.title=req.body.title;
+            product.price=req.body.price;
             product.description=req.body.description;
             if(image){
                 fileHelper.deleteFile(product.image);
