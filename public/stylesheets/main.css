@@ -8,6 +8,42 @@ body{
     max-width: 80%;
     margin: 0 auto;
 }
+.alert-danger {
+padding: 20px;
+background-color: #f44336;
+color: white;
+margin: 100px;
+}
+.alert-success {
+padding: 20px;
+background-color: #024917;
+color: white;
+margin: 100px;
+}
+
+.closebtn {
+margin-left: 15px;
+color: white;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.closebtn:hover {
+color: black;
+}
+.alert-info{
+    margin: 45vh auto;
+    width: 100%;
+    height: 20vh;
+    background-color: rgb(255, 255, 61);
+    border: 2px solid teal;
+    border-radius: 10px;
+    text-align: center;
+}
 .nav{
     position: fixed;
     top: 0;
@@ -148,7 +184,7 @@ i{
     background-color: teal;
     padding-bottom: 15px;
 }
-.form h1{
+.form .heading{
     margin: 20px auto;
     color: white;
     margin-left: 10px;

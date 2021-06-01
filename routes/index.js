@@ -168,7 +168,9 @@ router.post("/login", function(req, res, next){
       })(req, res, next)
       }
     }else{
-      res.render("usernotfound");
+      const errorMsg="Enter Correct Input to LogIn!";
+      req.flash("error", errorMsg);
+      res.redirect('back');
     }
     })
 });
