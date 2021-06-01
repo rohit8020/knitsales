@@ -1,28 +1,14 @@
 <%- include('../partials/header'); -%>
 
 <div class="container">
-    <div class="jumbotron">
-        <div class="container jumbo">
-            <h1>Welcome to KnitSales!</h1>
-            <p>This is for the community help! You Will Get All Necessary Items from Seniors and Faculty Members! </p>
-            <p>
-            <a href="/products/new" class="btn btn-primary btn-large">Add New Product!</a>
-            </p>
-        </div>
-    </div>
-    
-    <div class="row text-center"  >
+    <div class="products">
         <% products.forEach(function(product){ %>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="img-thumbnail itemcard" style="margin-top: 20px;">
-                    <img src="/<%= product.image %>" class="img-fluid">
-                <div class="caption">
-                    <h4><%= product.name %></h4>
-                </div>
-                <p>
-                	<a href="/products/<%= product._id %>" class="btn btn-primary">More Info</a>
-                </p>
-                </div>
+            <div class="product">
+                <div class="image"><img src="/<%= product.image %>"></div>
+                <div class="caption"><h4><%= product.name %></h4></div>
+                <a class="btn" href="/products/<%= product._id %>">
+                    More Info
+                </a>
             </div>
         <% }); %>
     </div>

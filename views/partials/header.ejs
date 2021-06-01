@@ -2,80 +2,125 @@
 <html>
     <head>
         <title>KnitSales</title>
-        
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.js"integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/stylesheets/main.css">
-		<link rel="stylesheet" href="/stylesheets/landing.css">        
-        <style type="text/css">
-	    .navbar-dark .navbar-toggler 
-    	    {
-                border-color: white;
-            }
-        </style>
+		<link rel="stylesheet" href="/stylesheets/landing.css">
+		<link rel="stylesheet" href="/stylesheets/about.css">
+		<link rel="stylesheet" href="/stylesheets/contact.css">
+		<link rel="stylesheet" href="/stylesheets/index.css">
+		<link rel="stylesheet" href="/stylesheets/show.css">
+		<script src="https://use.fontawesome.com/ffba366f41.js"></script>
+		<style>
+			.alert-danger {
+			  padding: 20px;
+			  background-color: #f44336;
+			  color: white;
+			  margin: 100px;
+			}
+			.alert-success {
+			  padding: 20px;
+			  background-color: #0cf752;
+			  color: white;
+			  margin: 100px;
+			}
+			
+			.closebtn {
+			  margin-left: 15px;
+			  color: white;
+			  font-weight: bold;
+			  float: right;
+			  font-size: 22px;
+			  line-height: 20px;
+			  cursor: pointer;
+			  transition: 0.3s;
+			}
+			
+			.closebtn:hover {
+			  color: black;
+			}
+			</style>        
     </head>
     <body>
-        
-        
-<nav class="navbar navb navbar-expand-lg navbar-light bg-light fixed-top " >
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<a href="/"><div class="navbar-brand mb-0 h1">KnitSales</div></a>
-	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="/">About</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link active" href="/">Contact</a>
-			</li>
-		</ul>
-		<ul class="navbar-nav mr-right navbar-right">
+        <nav class="nav">
+			<div class="nav-brand">
+				<a href="/">KNITSALES</a>
+			</div>
+			<div class="menu-toggle">
+				<ul class="menu">
+					<li class="item"><a href="/about"><i class="fa fa-info-circle" aria-hidden="true"></i> ABOUT</a></li>
+					<li class="item"><a href="/contact"><i class="fa fa-address-card" aria-hidden="true"></i> CONTACT</a></li>
+					<li class="item"><a href="/products/new"><i class="fa fa-plus-square" aria-hidden="true"></i> SELL OR DONATE</a></li>
+					<% if(!currentUser){ %>
+					<li class="item"><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> SIGNUP</a></li>
+					<li class="item"><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN</a></li>
+					<% } else{ %>
+						<li class="item">
+							<a href="/products">Logged In As <i class="fa fa-user-circle-o" aria-hidden="true"></i><span class="user"> <%= currentUser.username %></span></a>
+						</li>
+						
+						<li class="item">
+							<a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</a>
+						</li>
+					<% } %>
+				</ul>
+				<div class="toggle"> 
+					<div class="bars" 
+					onclick="funOpen()"><i id="bars" class="fa fa-bars" aria-hidden="true"></i></div>
+				</div>
+			</div>
+			
+		</nav>
+		<% if(error && error.length >0){ %>
+			<div class="alert-danger">
+				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+				<strong>! <%= error %> !</strong> 
+			</div>
+		<% } %>
+		<% if(success && success.length >0){ %>
+			<div class="alert-success">
+				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+				<strong>! <%= success %> !</strong> 
+			</div>
+		<% } %>
+		<ul class="side-bar">
+			<li class="item close-menu"
+			onclick="funClose()"><i class="fa fa-times" aria-hidden="true"></i></li>
+			<li class="item"><a href="/about"><i class="fa fa-info-circle" aria-hidden="true"></i> ABOUT</a></li>
+			<li class="item"><a href="/contact"><i class="fa fa-address-card" aria-hidden="true"></i> CONTACT</a></li>
+			<li class="item"><a href="/products/new"><i class="fa fa-plus-square" aria-hidden="true"></i> SELL OR DONATE</a></li>
+
 			<% if(!currentUser){ %>
-			<li class="nav-item active">
-				<a class="nav-link" href="/register"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-				</svg>Signup</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link active" href="/login"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-				</svg>Signin</a>
-			</li>
+				<li class="item"><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> SIGNUP</a></li>
+				<li class="item"><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN</a></li>
 			<% } else{ %>
-			<li class="nav-item">
-				<a class="nav-link active" href="#">Logged In As <strong><%= currentUser.username %></strong></a>
-			</li>
-			
-			<li class="nav-item">
-				<a class="nav-link active" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
-			</li>
-			
+				<li class="item">
+					<a href="/products">Logged In As <i class="fa fa-user-circle-o" aria-hidden="true"></i><span class="user"> <%= currentUser.username %></span></a>
+				</li>
+				
+				<li class="item">
+					<a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</a>
+				</li>
 			<% } %>
 		</ul>
-	</div>	
-</nav>
-<br/>
-<br/>
-<div class="container">
-	<% if(error && error.length >0){ %>
-	<div class="alert alert-danger" role="alert">
+        
+	<!-- <% if(error && error.length >0){ %>
     	<%= error %>
-    </div>
-   <% } %>
-    <% if(success && success.length >0){ %>
-    <div class="alert alert-success" role="alert">
-    	<%= success %>
-    </div>
     <% } %>
-</div>
-<br/>
-<br/>
+    <% if(success && success.length >0){ %>
+    	<%= success %>
+    <% } %> -->
+
+<script>
+	function funOpen()
+	{
+		var x=document.getElementsByClassName('side-bar');       
+		x[0].classList.add("visible");
+	}
+	function funClose()
+	{
+		var x=document.getElementsByClassName('side-bar');       
+		x[0].classList.remove("visible");
+	}
+</script>
 
 
 

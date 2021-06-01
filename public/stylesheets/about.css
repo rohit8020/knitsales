@@ -1,16 +1,18 @@
-.landing{
-    margin-top: 200px;
+.about{
+    margin-top: 120px;
     display: block;
     float: left;
     padding: 2rem;
 }
 .welcome-line{
     color: white;
-    font-size: 3.5rem;
-    border-bottom: 2px solid teal;
+    font-size: 2rem;
 }
 .sale-buy-donate{
     margin-top: 20px;
     color: rgb(0, 27, 27);
-    font-size: 2rem;
+    font-size: 1.4rem;
+}
+.highlight{
+    color: rgb(61, 1, 110);
 }

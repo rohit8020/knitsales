@@ -1,0 +1,21 @@
+.contact{
+    margin: 160px auto;
+    width: 100%;
+    padding: 0;
+    border: 2px solid teal;
+}
+.contact .dev-intro{
+    display: flex;
+    justify-content: space-around;
+}
+.contact .dev-intro .dev-photo{
+    margin: auto 30px;
+}
+.contact .dev-intro .dev-details{
+    border-left: 2px solid teal;
+    padding: 20px
+}
+.contact .dev-intro .dev-photo img{
+    width: 200px;
+    height: 200px;
+}

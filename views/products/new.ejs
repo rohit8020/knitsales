@@ -1,7 +1,20 @@
 <%- include('../partials/header'); -%>
 
 <div class="container">
-    <h1 style="text-align: center; color: aliceblue;">Create a New Product</h1>
+    <div class="form">
+        <h1 class="heading">Post New Item <i class="fa fa-plus-square" aria-hidden="true"></i></h1>
+        <form action="/products" method="POST" enctype="multipart/form-data">
+                <input class="form-control" type="text" placeholder="name" name="name" required>
+                <input class="form-control" type="number" name="price" placeholder="price" min="0.1" step="0.1"  required>
+                <textarea class="form-control" name="description" placeholder="description" required>Add description about the item!</textarea>
+                <label class="form-btn" for="file">Select Image</label>
+                <input id="file" type="file" name="image"  hidden required>
+                <label class="form-btn" for="Submit">Submit</label>
+                <button id="Submit" hidden>Submit!</button>
+            </div>
+        </form>
+    </div>
+    <!-- <h1 style="text-align: center; color: aliceblue;">Create a New Product</h1>
     <div style="width: 30%; margin: 50px auto;">
         <form action="/products" method="POST" enctype="multipart/form-data">
             <div class="form-group">
@@ -21,7 +34,7 @@
             </div>
         </form>
         <a href="/products">Go Back</a>
-    </div>
+    </div> -->
     
 
 </div>

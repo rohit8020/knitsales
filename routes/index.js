@@ -62,6 +62,16 @@ router.get("/", function(req, res){
    res.render("products/landing"); 
 });
 
+//about route
+router.get("/about",function(req,res){
+    res.render("products/about");
+});
+
+//contact route
+router.get("/contact",function(req,res){
+    res.render("products/contact");
+})
+
 //show register form
 router.get("/register", function(req, res) {
     res.render("register");
