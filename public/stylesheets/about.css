@@ -5,8 +5,10 @@
     padding: 2rem;
 }
 .welcome-line{
-    color: white;
+    color: black;
     font-size: 2rem;
+    border-bottom: 5px solid rgb(7, 73, 73);
+    width: 40%;
 }
 .sale-buy-donate{
     margin-top: 20px;
