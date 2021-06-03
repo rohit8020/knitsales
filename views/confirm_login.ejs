@@ -2,13 +2,13 @@
 
 <% if(userConfirmed){ %>
 <div class="container">
-    <h1 class="heading"">!!LogIn!!</h1>
     <div class="form">
+        <h1 class="heading"">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></h1>
         <form action="/login" method="POST">
             <input class="form-control" type="text" name="username" placeholder="username" required>
             <input id="password" class="form-control" type="password" name="password" placeholder="password" required>
             <label class="form-btn" for="submit">Submit</label>
-            <button id="submit">LogIn</button>
+            <button id="submit" hidden></button>
         </form>
     </div>
 </div>

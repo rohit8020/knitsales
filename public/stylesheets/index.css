@@ -50,13 +50,18 @@
 }
 .products .product .btn{
     width: 70%;
-    background-color: rgb(2, 139, 194);
-    border: 1px solid rgb(2, 40, 63);
-    border-radius: 5px;
+    background-color: rgb(45, 196, 255);
+    border: 1px solid rgb(0, 47, 77);
     color: white;
     margin: auto;
+    border-radius: 5px;
     text-decoration: none;
     padding: 5px;
+    cursor: pointer;
+}
+.products .product .btn:hover{
+    background-color: rgb(4, 89, 122);
+    border: 1px solid rgb(0, 22, 36);
 }
 @media screen and (max-width: 1000px){
     .products .product{

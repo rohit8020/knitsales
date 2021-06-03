@@ -115,6 +115,7 @@ color: black;
     padding: 10px 20px;
     text-decoration: none;
     color: rgb(1, 22, 22);
+    cursor: pointer;
 }
 .button-show:hover{
     border: 2px solid rgb(3, 53, 53);
@@ -241,9 +242,10 @@ i{
 label.form-btn{
     border: 2px solid rgb(13, 65, 13);
     background-color: rgb(138, 219, 138);
-    border-radius: 10px;
     padding: 3px;
+    border-radius: 5px;
     margin-right: 20px;
+    cursor: pointer;
 } 
 label.form-btn:hover{
     background-color: rgb(16, 138, 16);
