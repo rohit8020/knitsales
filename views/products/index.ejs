@@ -5,7 +5,7 @@
     <div class="products">
         <% products.forEach(function(product){ %>
             <div class="product">
-                <div class="image"><img src="/<%= product.image %>"></div>
+                <div class="image"><img src="/<%= product.image %>" alt="There should be an image of the item!"></div>
                 <div class="caption"><h4><%= product.name %></h4></div>
                 <a class="btn" href="/products/<%= product._id %>">
                     More Info
