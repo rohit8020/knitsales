@@ -55,7 +55,7 @@ router.post("/",middleware.isLoggedIn, [
    var image = image.path;
    var author = {
        id: req.user._id,
-       username: req.user.username
+       email: req.user.email
    }
    var newProduct = {name: name, image: image, description: description, author: author, price: price};
    //create a new product and save to database
