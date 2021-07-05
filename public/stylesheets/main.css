@@ -213,8 +213,9 @@ i{
     justify-content: space-around;
     border-radius: 10px;
     background-color: teal;
-    padding: 20px 10px;
+    padding: 20px;
 }
+
 .form .heading{
     margin: 20px auto;
     color: white;
@@ -226,6 +227,7 @@ i{
     border-bottom: 2px solid teal;
     border-radius: 10px;
     margin-top: 10px;
+    padding: 10px;
 }
 
 .form form textarea{
