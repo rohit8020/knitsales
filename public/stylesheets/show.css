@@ -1,110 +1,102 @@
-.show-item{
-    display: flex;
-    justify-content: space-between;
-    border: 2px solid teal;
+.show{
     width: 100%;
-    height: 70vh;
-    margin-top: 125px;
+    background-color: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.show-item .show-image{
-    width: 40%;
-    height: 100%;
+
+.show-item{
+    width: 80vw;
+    display: flex;
+    border: 2px solid var(--primary-color);
 }
+
+.show-image{
+    width: 40vw;
+    height: 60vh;
+}
+
 .show-image img{
     width: 100%;
     height: 100%;
 }
-.show-item .caption-full{
-    width: 60%;
-    justify-content: space-around;
-    background-color: teal;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 5px 20px;
-}
-.show-item .caption-full .name-price{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.show-item .caption-full .description{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    height: 70%;
-}
-.show-item .caption-full .description p{
-    word-break: break-all;
-}
-.show-item .caption-full .action-btn{
-    display: flex;
-    margin: auto 20px;
-    flex-wrap: wrap;
-}
-.show-item .caption-full .action-btn .btn{
-    height: 62%;
-    width: 70px;
-    padding: 5px 10px;
-    background-color: rgb(188, 209, 0);
-    border: 2px solid rgb(1, 32, 32);
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    color: white;
-    font-size: 1.3rem;
-    cursor: pointer;
-    
-}
-.show-item .caption-full .action-btn .btn:hover{
-    background-color: rgb(135, 150, 6);
-    border: 2px solid rgb(0, 26, 26);
-}
-.show-item .caption-full .action-btn .btn-danger{
-    height: 100%;
-    background-color: rgb(250, 151, 133);
-    border: 2px solid rgb(158, 3, 3);
-    padding: 6px 10px;
-    margin-left: 20px;
-    color: white;
-    font-size: 1.3rem;
-    width: 100px;
-    cursor: pointer;
-}
-.show-item .caption-full .action-btn .btn-danger:hover{
-    background-color: rgb(161, 29, 5);
-    border: 2px solid rgb(53, 1, 1);
-}
-@media screen and (max-width:600px){
-    .show-item{
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        height: 100%;
 
+.caption-full{
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    color: var(--white-color);
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.caption-full>div{
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.action-btn{
+    display: flex;
+}
+
+.action-btn:last-child{
+   margin-right: 20px;
+}
+
+#edit{
+    background-color: var(--secondary-color);
+    color: var(--black-color);
+}
+
+#delete{
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#delete:hover{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+@media only screen and (max-width: 600px){
+    .show{
+        padding-top: 120px;
+        padding-bottom: 40px;
+        height: max-content;
+        min-height: 100vh;
     }
-    .show-item .show-image{
+    .show-item{
+        flex-direction: column;
+        align-items: center;
+    }
+    .caption-full{
+        width: 90%;
+
+        text-align: center;
+        align-items: center;
+    }
+    .name,
+    .price,
+    .description,
+    .submitted-by{
+        margin-top: 20px;
+    }
+
+    .submitted-by{
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 420px){
+    .show{
+        padding-top: 100px;
+    }
+    .show-image{
         height: 40vh;
-        width: 100%;
     }
-    .show-item .caption-full{
-        height: 40%;
-        width: 100%;
-        padding: 0;
-    }
-    .show-item .caption-full .action-btn{
-        justify-content: left;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    .show-item .caption-full .action-btn .btn-danger,
-    .show-item .caption-full .action-btn, .btn{
-        
-        height: 100%;
+    #edit{
+        margin-bottom: 30px;
     }
 }

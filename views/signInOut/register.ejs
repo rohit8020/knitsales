@@ -1,6 +1,11 @@
-<%- include('./partials/header'); -%>
+<%- include('../partials/header'); -%>
+<link rel="stylesheet" href="../stylesheets/nav.css">
+<link rel="stylesheet" href="../stylesheets/form.css">
+</head>
+<body>   
+<%- include('../partials/nav'); -%>
 
-<div class="container">
+<div class="form-container">
         <div class="form">
             <h1 class="heading">Register <i class="fa fa-user-plus" aria-hidden="true"></i></h1>
             <form action="/register" method="POST">
@@ -8,10 +13,10 @@
                 <input class="form-control" type="email" name="email" placeholder="email" required>
                 <input id="password"
                 class="form-control" type="password" name="password" placeholder="password" required>
-                <label class="form-btn" for="submit">Submit</label>
+                <label class="btn" for="submit">Submit</label>
                 <button id="submit" hidden>Sign Up!</button>
             </form>
         </div>
 </div>
 
-<%- include('./partials/footer'); -%>
+<%- include('../partials/footer'); -%>

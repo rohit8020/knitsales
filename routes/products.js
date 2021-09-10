@@ -93,7 +93,12 @@ router.get("/:id", function(req, res){
 //EDIT PRODUCT ROUTE
 router.get("/:id/edit", middleware.checkProductOwnership, function(req, res) {
             Product.findById(req.params.id, function(err, foundProduct){
-            res.render("products/edit", {product: foundProduct});
+                if(err){
+                    req.flash("error", "Sorry For Inconvenience, Some Server Problem!!")
+                    res.redirect("back");
+                }else{
+                    res.render("products/edit", {product: foundProduct});
+                }
         });
 });
 

@@ -1,12 +1,17 @@
 <%- include('../partials/header'); -%>
+<link rel="stylesheet" href="/stylesheets/index.css">
+<link rel="stylesheet" href="/stylesheets/nav.css">
+</head>
+<body>   
 
-<div class="container">
-    <div class="index-title">These are some Used Items from other Students and Facluty Members</div>
+<%- include('../partials/nav'); -%>
+<div class="index">
+    <p class="index-title">These are some Items from other Students and Facluty Members</p>
     <div class="products">
         <% products.forEach(function(product){ %>
             <div class="product">
                 <div class="image"><img src="/<%= product.image %>" alt="There should be an image of the item!"></div>
-                <div class="caption"><h4><%= product.name %></h4></div>
+                <div class="caption"><%= product.name %></div>
                 <a class="btn" href="/products/<%= product._id %>">
                     More Info
                 </a>

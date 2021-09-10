@@ -1,22 +1,26 @@
-<%- include('./partials/header'); -%>
+<%- include('../partials/header'); -%>
+<link rel="stylesheet" href="../stylesheets/nav.css">
+<link rel="stylesheet" href="../stylesheets/form.css">
+</head>
+<body>   
+<%- include('../partials/nav'); -%>
 
 <% if(userConfirmed){ %>
-<div class="container">
+<div class="form-container">
     <div class="form">
         <h1 class="heading"">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></h1>
         <form action="/login" method="POST">
             <input class="form-control" type="text" name="username" placeholder="username" required>
             <input id="password" class="form-control" type="password" name="password" placeholder="password" required>
-            <label class="form-btn" for="submit">Submit</label>
+            <label class="btn" for="submit">Submit</label>
             <button id="submit" hidden></button>
         </form>
     </div>
 </div>
 <% }else{ %>
-    <div class="alert-danger">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <div class="alert-danger"> 
         <strong> !CONFIRM YOUR EMAIL! </strong> 
     </div>
 <% } %>
 
-<%- include('./partials/footer'); -%>
+<%- include('../partials/footer'); -%>

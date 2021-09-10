@@ -74,7 +74,7 @@ router.get("/contact",function(req,res){
 
 //show register form
 router.get("/register", function(req, res) {
-    res.render("register");
+    res.render("signInOut/register");
 });
 
 //handle signup logic
@@ -110,41 +110,46 @@ router.post("/register", [
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message)
-            res.redirect("register");
+            res.redirect("signInOut/register");
         } 
         // passport.authenticate("local")(req, res, function(){
             let task = "emailConfirmation"
             sendMail(user._id, user.email, task)
-            .then((result) => 
-            console.log('Email sent...', result)
+            .then((result) => {
+              if(result){
+                // console.log(result);
+                req.flash("success", "Welcome To KnitSales " + user.username + ". CONFIRM YOUR EMAIL!");
+                res.redirect("/");
+              }
+            }
             )
-            .catch((error) => 
-            console.log(error.message)
+            .catch((error) => {
+              // console.log(error)
+              if(error){
+                req.flash("error", "Sorry For Inconvenience, Some Server Problem!")
+                res.redirect("/");
+              }
+            } 
             );
-            // req.flash("success", "Welcome To KnitSales " + user.username);
-            res.redirect("/confirm");
-        // });
     });
 });
-
-router.get("/confirm", function(req, res){
-    res.render("confirm");
-})
 
 router.get("/emailConfirmation/:userId", function(req, res) {
     User.findByIdAndUpdate(req.params.userId, { $set: {confirmed : true}},function(err, user){
         if(err){
-            console.log(err)
+          req.flash("error", "Sorry For Inconvenience, Some Server Problem!")
+          res.redirect("/");
+        }else{
+          user.confirmed=true;
+          res.render("signInOut/confirm_login",{userConfirmed: user.confirmed});
         }
-        user.confirmed=true;
-        res.render("confirm_login",{userConfirmed: user.confirmed});
     });
     
 });
 
 //show login form
 router.get("/login", function(req, res) {
-    res.render("login");
+    res.render("signInOut/login");
 });
 
 
@@ -153,16 +158,18 @@ router.get("/login", function(req, res) {
 router.post("/login", function(req, res, next){
     User.findOne({username: req.body.username},function(err, user){
       if(err){
-        console.log(err);
+        req.flash("error", "Sorry For Inconvenience, Some Server Problem!")
+        res.redirect("/");
       }
       if(user){
       if(!user.confirmed )
       {
-        res.redirect("/confirm");
+        req.flash("error", "Confirm Your Email!")
+        res.redirect("/");
       }else{
       passport.authenticate("local", {
             successRedirect: "/products",
-            failureRedirect: "/login",
+            failureRedirect: "signInOut/login",
             failureFlash: "Invalid username or password!!",
             successFlash: "Logged In Successfully!!"
       })(req, res, next)

@@ -1,16 +1,22 @@
-<%- include('./partials/header'); -%>
+<%- include('../partials/header'); -%>
+<link rel="stylesheet" href="../stylesheets/nav.css">
+<link rel="stylesheet" href="../stylesheets/form.css">
+</head>
+<body>   
+<%- include('../partials/nav'); -%>
 
-<div class="container">
+
+<div class="form-container">
     <div class="form">
         <h1 class="heading">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></h1>
         <form action="/login" method="POST">
             <input class="form-control" type="text" name="username" placeholder="username" required>
             <input id="password" 
             class="form-control" type="password" name="password" placeholder="password" required>
-            <label class="form-btn" for="submit">Login</label>
+            <label class="btn" for="submit">Login</label>
             <button id="submit" hidden></button>
         </form>
     </div>     
 </div>
 
-<%- include('./partials/footer'); -%>
+<%- include('../partials/footer'); -%>

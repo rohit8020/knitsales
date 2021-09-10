@@ -1,16 +1,20 @@
 <%- include('../partials/header'); -%>
+<link rel="stylesheet" href="/stylesheets/form.css">
+<link rel="stylesheet" href="/stylesheets/nav.css">
+</head>
+<body>   
+<%- include('../partials/nav'); -%>
 
-
-<div class="container">
+<div class="form-container">
     <div class="form">
         <h1 class="heading">Edit <%= product.name %>!</h1>
         <form action="/products/<%= product._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <input class="form-control" type="text"  name="name" value="<%= product.name %>" required>
                 <input class="form-control" type="number" name="price" value="<%= product.price %>" min="0.1" step="0.1" required>
                 <textarea class="form-control" type="text" name="description" required><%= product.description %></textarea>
-                <label class="form-btn" for="file">Select Image</label>
+                <label class="btn" for="file">Select Image</label>
                 <input id="file" type="file" name="image"  value="<%= product.image %>" hidden>
-                <label class="form-btn" for="submit">Submit</label>
+                <label class="btn" for="submit">Submit</label>
                 <button id="submit" hidden>Submit!</button>
         </form>
     </div>

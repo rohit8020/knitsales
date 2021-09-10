@@ -1,21 +1,18 @@
 <%- include('../partials/header'); -%>
+<link rel="stylesheet" href="/stylesheets/landing.css">
+<link rel="stylesheet" href="/stylesheets/nav.css">
+</head>
+<body>   
+<%- include('../partials/nav'); -%>
 
-
-<div class="container landing">
+<div class="container-landing">
     <div class="main">
-        <div class="hello">
-            <div class="welcome-line">WELCOME TO KNITSALES</div>
-            <p class="sale-buy-donate">
-                Hey Folks, This is the platform of your college where you can find all your necessary items from other students and faculty members. 
+            <div class="heading"><span>WELCOME</span> <span>TO</span> <span>KNITSALES</span></div>
+            <p class="intro">
+                Hey Folks, This is the platform where you can find all your necessary items from other students and faculty members. 
             </p>
-        </div>
-    
-        <div class="svg">
-            <img src="https://drive.google.com/uc?id=1PFy4DYfKXaOrl5N0g1GGO1EGeMGhBxQO" alt="🏫️">
-        </div>
+            <a href="/products" class="btn">SHOW ITEMS</a>
     </div>    
-    <a href="/products" id="landing-btn">SHOW ITEMS</a>
 </div>
-
 
 <%- include('../partials/footer'); -%>

@@ -1,97 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+		<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>KnitSales</title>
-        <link rel="stylesheet" href="/stylesheets/main.css">
-		<link rel="stylesheet" href="/stylesheets/landing.css">
-		<link rel="stylesheet" href="/stylesheets/about.css">
-		<link rel="stylesheet" href="/stylesheets/contact.css">
-		<link rel="stylesheet" href="/stylesheets/index.css">
-		<link rel="stylesheet" href="/stylesheets/show.css">
-		<script src="https://use.fontawesome.com/ffba366f41.js"></script>      
-    </head>
-    <body>
-        <nav class="nav">
-			<div class="nav-brand">
-				<a href="/">KNITSALES</a>
-			</div>
-			<div class="menu-toggle">
-				<ul class="menu">
-					<li class="item"><a href="/about"><i class="fa fa-info-circle" aria-hidden="true"></i> ABOUT</a></li>
-					<li class="item"><a href="/contact"><i class="fa fa-address-card" aria-hidden="true"></i> CONTACT</a></li>
-					<li class="item"><a href="/products/new"><i class="fa fa-plus-square" aria-hidden="true"></i> SELL OR DONATE</a></li>
-					<% if(!currentUser){ %>
-					<li class="item"><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> SIGNUP</a></li>
-					<li class="item"><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN</a></li>
-					<% } else{ %>
-						<li class="item">
-							<a href="/products">Logged In As <i class="fa fa-user-circle-o" aria-hidden="true"></i><span class="user"> <%= currentUser.username %></span></a>
-						</li>
-						
-						<li class="item">
-							<a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</a>
-						</li>
-					<% } %>
-				</ul>
-				<div class="toggle"> 
-					<div class="bars" 
-					onclick="funOpen()"><i id="bars" class="fa fa-bars" aria-hidden="true"></i></div>
-				</div>
-			</div>
-			
-		</nav>
-		<% if(error && error.length >0){ %>
-			<div class="alert-danger">
-				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-				<strong>! <%= error %> !</strong> 
-			</div>
-		<% } %>
-		<% if(success && success.length >0){ %>
-			<div class="alert-success">
-				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-				<strong>! <%= success %> !</strong> 
-			</div>
-		<% } %>
-		<ul class="side-bar">
-			<li class="item close-menu"
-			onclick="funClose()"><i class="fa fa-times" aria-hidden="true"></i></li>
-			<li class="item"><a href="/about"><i class="fa fa-info-circle" aria-hidden="true"></i> ABOUT</a></li>
-			<li class="item"><a href="/contact"><i class="fa fa-address-card" aria-hidden="true"></i> CONTACT</a></li>
-			<li class="item"><a href="/products/new"><i class="fa fa-plus-square" aria-hidden="true"></i> SELL OR DONATE</a></li>
+		<script src="https://use.fontawesome.com/ffba366f41.js"></script>
+		<link rel="stylesheet" href="/stylesheets/main.css">
 
-			<% if(!currentUser){ %>
-				<li class="item"><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> SIGNUP</a></li>
-				<li class="item"><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN</a></li>
-			<% } else{ %>
-				<li class="item">
-					<a href="/products">Logged In As <i class="fa fa-user-circle-o" aria-hidden="true"></i><span class="user"> <%= currentUser.username %></span></a>
-				</li>
-				
-				<li class="item">
-					<a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</a>
-				</li>
-			<% } %>
-		</ul>
-        
-	<!-- <% if(error && error.length >0){ %>
-    	<%= error %>
-    <% } %>
-    <% if(success && success.length >0){ %>
-    	<%= success %>
-    <% } %> -->
 
-<script>
-	function funOpen()
-	{
-		var x=document.getElementsByClassName('side-bar');       
-		x[0].classList.add("visible");
-	}
-	function funClose()
-	{
-		var x=document.getElementsByClassName('side-bar');       
-		x[0].classList.remove("visible");
-	}
-</script>
+
+
 
 
 

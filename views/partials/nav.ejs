@@ -1,0 +1,39 @@
+<div class="menu-wrap">
+    <input type="checkbox" class="toggler">
+    <div class="hamburger"><div></div></div>
+    <div class="menu">
+      <div>
+        <div>
+            <ul>
+                <li class="item"><a href="/about"><i class="fa fa-info-circle" aria-hidden="true"></i> ABOUT</a></li>
+                <li class="item"><a href="/contact"><i class="fa fa-address-card" aria-hidden="true"></i> CONTACT</a></li>
+                <li class="item"><a href="/products/new"><i class="fa fa-plus-square" aria-hidden="true"></i> SELL OR DONATE</a></li>
+                <% if(!currentUser){ %>
+                <li class="item"><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> SIGNUP</a></li>
+                <li class="item"><a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN</a></li>
+                <% } else{ %>
+                    <li class="item">
+                        <a href="/products">Logged In As <i class="fa fa-user-circle-o" aria-hidden="true"></i><span class="user"> <%= currentUser.username %></span></a>
+                    </li>
+                    
+                    <li class="item">
+                        <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+      </div>
+    </div>
+</div>
+
+<% if(error && error.length >0){ %>
+    <div class="alert-danger">
+        <strong>! <%= error %> !</strong> 
+    </div>
+<% } %>
+<% if(success && success.length >0){ %>
+    <div class="alert-success">
+        <strong>! <%= success %> !</strong> 
+    </div>
+<% } %>
+

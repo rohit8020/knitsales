@@ -1,21 +1,43 @@
 .contact{
-    margin: 160px auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
     width: 100%;
-    padding: 0;
-    border: 2px solid teal;
-}
-.contact .dev-intro{
+    min-height: 100vh;
+    background-color: var(--bg-color);
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
 }
-.contact .dev-intro .dev-photo{
-    margin: auto 30px;
+
+.dev-intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--white-color);
 }
-.contact .dev-intro .dev-details{
-    border-left: 2px solid teal;
-    padding: 20px
+
+.dev-photo{
+    border: 5px solid var(--primary-color);
+    border-radius: 50%;
 }
-.contact .dev-intro .dev-photo img{
-    width: 200px;
-    height: 200px;
+
+h1,
+h2,
+p{
+    margin-top: 20px ;
+}
+
+h1,
+h2:nth-child(3){
+    color: var(--primary-color);
+}
+
+@media only screen and (max-width: 420px){
+    .dev-intro{
+        width: 80vw;
+    }
+    .dev-photo img{
+        width: 50vw;
+    }
 }
