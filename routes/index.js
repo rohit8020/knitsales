@@ -110,7 +110,7 @@ router.post("/register", [
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message)
-            res.redirect("signInOut/register");
+            res.redirect("/register");
         } 
         // passport.authenticate("local")(req, res, function(){
             let task = "emailConfirmation"
@@ -169,7 +169,7 @@ router.post("/login", function(req, res, next){
       }else{
       passport.authenticate("local", {
             successRedirect: "/products",
-            failureRedirect: "signInOut/login",
+            failureRedirect: "/login",
             failureFlash: "Invalid username or password!!",
             successFlash: "Logged In Successfully!!"
       })(req, res, next)
