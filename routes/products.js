@@ -39,8 +39,13 @@ router.post("/",middleware.isLoggedIn, [
    var price = req.body.price;
    var description = req.body.description;
    if(!image){
-        req.flash("error", "The file is not of jpg/jpeg/png Type OR File Size is greater then 100kb!!");
+        req.flash("error", "The file is not of jpg/jpeg/png Type!");
         return res.redirect("back");
+   }
+
+   if(image.size>800000){
+    req.flash("error", "Image Size is greater then 100kb!");
+    return res.redirect("back");
    }
 
    const errors = validationResult(req);
