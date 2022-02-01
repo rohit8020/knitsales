@@ -4,8 +4,8 @@ var passport = require("passport");
 var User     = require("../models/user");
 var middleware = require("../middleware");
 
-var { body } = require('express-validator/check');
-var { validationResult } = require('express-validator/check');
+var { body } = require('express-validator');
+var { validationResult } = require('express-validator');
 
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');

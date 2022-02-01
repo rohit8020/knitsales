@@ -3,8 +3,8 @@ var router = express.Router();
 var Product = require("../models/product");
 var middleware = require("../middleware");
 var fileHelper = require("../file");
-var { body } = require('express-validator/check');
-var { validationResult } = require('express-validator/check');
+var { body } = require('express-validator');
+var { validationResult } = require('express-validator');
    
 
 //INDEX -show all products

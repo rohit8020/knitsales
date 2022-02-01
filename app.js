@@ -8,14 +8,7 @@ var  path = require('path'),
      LocalStrategy = require("passport-local"),
      methodOverride = require("method-override"),
      User = require("./models/user"),
-     Product = require("./models/product"),
-     nodemailer = require('nodemailer'),
      multer = require("multer");
-const { json } = require("express");
-const { google } = require('googleapis');
-const { file } = require("googleapis/build/src/apis/file");
-
-
 
      
 //requiring routes
@@ -37,7 +30,7 @@ passport.deserializeUser(User.deserializeUser());
 
 var url = process.env.DATABASEURL || "mongodb://localhost/knit" ;
 
-mongoose.connect(url);
+mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true });
 
 var fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -58,7 +51,8 @@ var fileFilter = (req, file, cb) => {
         cb(null, false);
     }
 }
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(multer({storage: fileStorage, fileFilter: fileFilter}).single('image'));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -74,10 +68,10 @@ app.use(function(req, res, next){
     next();
 })
 
-app.use("/", indexRoutes);
+app.use("/", indexRoutes); 
 app.use("/products", productRoutes);
 
 app.listen(process.env.PORT,process.env.IP, function(){
     console.log("The knitsales Server has started!"); 
- });
+});
  
