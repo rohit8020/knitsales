@@ -147,12 +147,12 @@ router.get("/emailConfirmation/:userId", function(req, res) {
     
 });
 
+
+
 //show login form
 router.get("/login", function(req, res) {
     res.render("signInOut/login");
 });
-
-
 
 //handling login logic
 router.post("/login", function(req, res, next){

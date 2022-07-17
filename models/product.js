@@ -11,7 +11,6 @@ var productSchema = new mongoose.Schema({
             ref: "User"
         },
         email: String
-        
     }
 });
 

@@ -11,7 +11,7 @@ var  path = require('path'),
      multer = require("multer");
 
      
-//requiring routes
+
 var productRoutes = require("./routes/products"),
     indexRoutes      = require("./routes/index")
 
@@ -57,6 +57,8 @@ app.use(multer({storage: fileStorage, fileFilter: fileFilter}).single('image'));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use("/images",express.static(path.join(__dirname, "images")));
+
+//is used in order to use req method verbs like POST,PUT 
 app.use(methodOverride("_method"));
 app.use(flash());
 
@@ -71,7 +73,7 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes); 
 app.use("/products", productRoutes);
 
-app.listen(process.env.PORT,process.env.IP, function(){
+app.listen(process.env.PORT,process.env.IP,()=>{
     console.log("The knitsales Server has started!"); 
 });
  
