@@ -73,7 +73,7 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes); 
 app.use("/products", productRoutes);
 
-app.listen(9000,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("The knitsales Server has started!"); 
 });
  
