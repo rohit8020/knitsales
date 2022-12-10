@@ -9,7 +9,7 @@ var  path = require('path'),
      methodOverride = require("method-override"),
      User = require("./models/user"),
      multer = require("multer");
-
+     require('dotenv').config()
      
 
 var productRoutes = require("./routes/products"),

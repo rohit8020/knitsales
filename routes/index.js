@@ -3,6 +3,7 @@ var router   = express.Router();
 var passport = require("passport");
 var User     = require("../models/user");
 var middleware = require("../middleware");
+require('dotenv').config()
 
 var { body } = require('express-validator');
 var { validationResult } = require('express-validator');
@@ -40,7 +41,7 @@ async function sendMail(userId, email, task) {
       },
     });
     
-    const url = `https://knitsales.herokuapp.com/${task}/${userId}`;
+    const url = `${process.env.CONFIRM_URL}${task}/${userId}`;
 
     const mailOptions = {
       to: `${email}`,
