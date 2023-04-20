@@ -90,7 +90,7 @@ router.post("/register", [
     .withMessage('Please enter a valid email address.')
     .custom((value, { req }) => {
       if (!value.endsWith("knit.ac.in")) {
-        throw new Error('The Email Should be Your Official College Email!!');
+        throw new Error('The Email Should be Your Official College Email(for ex: "abc.123@knit.ac.in")!!');
       }
       return true;
     })
@@ -107,6 +107,18 @@ router.post("/register", [
       req.flash("error", errors.array()[0].msg);
       return res.redirect('back');
     }
+
+    User.findOne({ $or: [{ username: req.body.username }, { email: req.body.email }]})
+    .then(()=>{
+      req.flash('error',"The user with the given username or email already exists!");
+      res.redirect('/register');
+    })
+    .catch((err)=>{
+      req.flash("error", err.message)
+      res.redirect("/register");
+    })
+    
+
     var newUser = new User({username: req.body.username, email: req.body.email, confirmed: false});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
